@@ -5,8 +5,7 @@
         public int ApplyPromotion(Item[] items)
         {
             int totalOrder = 0;
-            PromotionA promotionA = new PromotionA();
-            PromotionB promotionB = new PromotionB();
+            PromotionNType promotionA = new PromotionNType();
             foreach (Item item in items)
             {
                 if (promotionA.CheckPromotion(item))
@@ -14,12 +13,7 @@
                     totalOrder += promotionA.CalculateTotalOrder(item);
                     continue;
                 }
-                if (promotionB.CheckPromotion(item))
-                {
-                    totalOrder += promotionB.CalculateTotalOrder(item);
-                    continue;
-                }
-
+                
                 totalOrder += item.Quantity * item.Price;
             }
 
