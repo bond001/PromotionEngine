@@ -1,21 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PromotionEngine
+﻿namespace PromotionEngine
 {
     public class PromotionEngine
     {
         public int ApplyPromotion(Item[] items)
         {
-            if (items[0].Sku == "A" && items[0].Quantity == 3 && items[0].Price== 50)
+            int totalOrder = 0;
+            foreach (Item item in items)
             {
-                return 130;
+                if (item.Sku == "A" && item.Quantity >= 3 && item.Price == 50)
+                {
+                    totalOrder += 130 + ((item.Quantity - 3) * item.Price);
+                }
+                
+                if (item.Sku == "B" && item.Quantity >= 2 && item.Price == 30)
+                {
+                    totalOrder += 45 + ((item.Quantity - 2) * item.Price);
+                }
+
+                return totalOrder;
             }
-            if (items[0].Sku == "B" && items[0].Quantity == 2 && items[0].Price == 30)
-            {
-                return 45;
-            }
+            
             return 0;
         }
     }
