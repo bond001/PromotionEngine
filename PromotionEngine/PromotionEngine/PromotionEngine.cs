@@ -6,9 +6,9 @@ namespace PromotionEngine
 {
     public class PromotionEngine
     {
-        public int ApplyPromotion(char[] skus, int[] skuQuantity)
+        public int ApplyPromotion(Item[] items)
         {
-            if (skus[0] == 'A' && skuQuantity[0] == 3)
+            if (items[0].Sku == "A" && items[0].Quantity == 3 && items[0].Price== 50)
             {
                 return 130;
             }
