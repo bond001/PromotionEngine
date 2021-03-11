@@ -10,17 +10,19 @@
                 if (item.Sku == "A" && item.Quantity >= 3 && item.Price == 50)
                 {
                     totalOrder += 130 + ((item.Quantity - 3) * item.Price);
+                    continue;
                 }
                 
                 if (item.Sku == "B" && item.Quantity >= 2 && item.Price == 30)
                 {
                     totalOrder += 45 + ((item.Quantity - 2) * item.Price);
+                    continue;
                 }
-
-                return totalOrder;
+                totalOrder += item.Quantity * item.Price;
             }
             
-            return 0;
+
+            return totalOrder;
         }
     }
 }
