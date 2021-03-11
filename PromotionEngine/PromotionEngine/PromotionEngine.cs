@@ -11,12 +11,12 @@
             {
                 if (promotionA.CheckPromotion(item))
                 {
-                    promotionA.CalculateTotalOrder(item);
+                    totalOrder += promotionA.CalculateTotalOrder(item);
                     continue;
                 }
                 if (promotionB.CheckPromotion(item))
                 {
-                    promotionB.CalculateTotalOrder(item);
+                    totalOrder += promotionB.CalculateTotalOrder(item);
                     continue;
                 }
 
