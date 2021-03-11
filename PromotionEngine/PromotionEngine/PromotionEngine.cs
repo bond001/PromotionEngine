@@ -5,22 +5,24 @@
         public int ApplyPromotion(Item[] items)
         {
             int totalOrder = 0;
+            PromotionA promotionA = new PromotionA();
+            PromotionB promotionB = new PromotionB();
             foreach (Item item in items)
             {
-                if (item.Sku == "A" && item.Quantity >= 3 && item.Price == 50)
+                if (promotionA.CheckPromotion(item))
                 {
-                    totalOrder += 130 + ((item.Quantity - 3) * item.Price);
+                    promotionA.CalculateTotalOrder(item);
                     continue;
                 }
-                
-                if (item.Sku == "B" && item.Quantity >= 2 && item.Price == 30)
+                if (promotionB.CheckPromotion(item))
                 {
-                    totalOrder += 45 + ((item.Quantity - 2) * item.Price);
+                    promotionB.CalculateTotalOrder(item);
                     continue;
                 }
+
                 totalOrder += item.Quantity * item.Price;
             }
-            
+
 
             return totalOrder;
         }
